@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>les portes loqiques</title>
+		<h1>Les différentes portes logique</h1>
+	</head>
+	<body>
+		<link href="css_projet_part3.css" rel="stylesheet">
+		<h2>Dans cette page, nous allons traiter des différentes portes logiques
+        et nous allons afficher leurs résultats.
+		</h2>
+		<p><strong>Cet outil calcule le résultat des portes logiques</strong></p>
+			<form Name='Form'>
+			<div>
+				<label for="binaire_1">Premier nombre binaire :
+				</label>
+				<input type="number" name="nombre" id="binaire_1" min="0" max="1" step="1" />
+			
+			</div>
+			<div>
+				<label for="binaire_2">Deuxième nombre binaire :
+				</label>
+				<input type="number" name="nombre" id="binaire_2" min="0" max="1" step="1" />
+		    
+			</div>
+		  
+			<div>
+			<select name="select" id="porte">
+				<option>ET</option>
+				<option>OU</option>
+				<option>NAND</option>
+				<option>NOR</option>
+				<option>XOR</option>
+			</select>
+			</div>
+
+		<div>
+	
+			<input type="button" id="bt" value="Calculer" onclick="calcul()">
+		</div>
+	
+		<div>
+		<p id="resultat"></p>
+		</div>
+	</body>
+	<script src=p-log.js type="text/javascript"> </script>
+</html>
