@@ -1,0 +1,29 @@
+h1 {
+	color: white;
+	text-align: center;
+	font-size: 122;
+	font-family: century gothic;
+}
+p {
+	color: white;
+	font-size: 39.5;
+	font-family: century gothic;
+}
+body {
+background: rgb(0,0,0);
+background: linear-gradient(114deg, rgba(0,0,0,1) 0%, rgba(3,163,7,1) 25%, rgba(0,0,0,1) 43%, rgba(0,0,0,1) 55%, rgba(25,222,36,1) 75%, rgba(22,41,0,1) 100%);
+}
+button {
+	display: inline-block;
+	padding: 15px 30px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #fff;
+	background: black;
+	border: none;
+	border-radius: 30px; /* Coins arrondis */
+	cursor: pointer; /* Curseur de la souris */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre portée */
+	transition: all 0.3s ease; /* Animation fluide */
+	list-style: none;
+}

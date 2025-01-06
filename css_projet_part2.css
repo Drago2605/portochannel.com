@@ -1,0 +1,15 @@
+h1 {
+	color: white;
+	text-align: center;
+	font-size: 122;
+	font-family: century gothic;
+}
+p {
+	color: white;
+	font-size: 39.5;
+	font-family: century gothic;
+}
+body {
+	background: rgb(9,49,119);
+	background: linear-gradient(114deg, rgba(9,49,119,1) 0%, rgba(52,145,210,1) 25%, rgba(46,59,184,1) 50%, rgba(25,216,222,1) 75%, rgba(0,170,255,1) 100%);
+}

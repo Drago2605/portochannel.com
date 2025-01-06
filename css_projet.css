@@ -1,0 +1,45 @@
+h1 {
+	color: white;
+	text-align: center;
+	font-size: 122;
+	font-family: century gothic;
+}
+p {
+	color: white;
+	font-size: 39.5;
+	font-family: century gothic;
+}
+body {
+background: rgb(0,0,0);
+background: linear-gradient(114deg, rgba(0,0,0,1) 0%, rgba(116,36,6,1) 50%, rgba(158,61,26,1) 83%, rgba(177,78,38,1) 100%);
+}
+
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: left;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+button:hover {
+    background-color: #000000;
+}
+
+/* Image dans le bouton */
+button img {
+    width: 145px; /* Largeur de l'image */
+    height: 145px; /* Hauteur de l'image */
+    object-fit: cover; /* Gérer le recadrage si nécessaire */
+}
+
+/* Texte dans le bouton */
+button span {
+    font-size: 16px; /* Taille de la police */
+    color: #000000; /* Couleur du texte */
+    font-weight: bold; /* Poids du texte */
+}
+
