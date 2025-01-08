@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slalom Ski Game</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #87CEEB;
+        }
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const skier = {
+            x: canvas.width / 2,
+            y: canvas.height - 100,
+            width: 30,
+            height: 50,
+            speed: 10,
+            dx: 0,
+        };
+
+        const gates = [];
+        const gateWidth = 100;
+        const gateHeight = 20;
+        const gateSpeed = 5;
+        let score = 0;
+
+        function createGate() {
+            const x = Math.random() * (canvas.width - gateWidth);
+            gates.push({ x, y: -gateHeight });
+        }
+
+        function updateGates() {
+            gates.forEach((gate, index) => {
+                gate.y += gateSpeed;
+
+                if (gate.y > canvas.height) {
+                    gates.splice(index, 1);
+                    score++;
+                }
+            });
+        }
+
+        function drawGates() {
+            ctx.fillStyle = 'red';
+            gates.forEach(gate => {
+                ctx.fillRect(gate.x, gate.y, gateWidth, gateHeight);
+            });
+        }
+
+        function drawSkier() {
+            ctx.fillStyle = 'black';
+            ctx.fillRect(skier.x, skier.y, skier.width, skier.height);
+        }
+
+        function detectCollision() {
+            gates.forEach(gate => {
+                if (
+                    skier.x < gate.x + gateWidth &&
+                    skier.x + skier.width > gate.x &&
+                    skier.y < gate.y + gateHeight &&
+                    skier.y + skier.height > gate.y
+                ) {
+                    alert(`Game Over! Your Score: ${score}`);
+                    document.location.reload();
+                }
+            });
+        }
+
+        function drawScore() {
+            ctx.fillStyle = 'black';
+            ctx.font = '20px Arial';
+            ctx.fillText(`Score: ${score}`, 10, 30);
+        }
+
+        function moveSkier() {
+            skier.x += skier.dx;
+
+            // Prevent the skier from going out of bounds
+            if (skier.x < 0) skier.x = 0;
+            if (skier.x + skier.width > canvas.width) skier.x = canvas.width - skier.width;
+        }
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function gameLoop() {
+            clearCanvas();
+            drawSkier();
+            moveSkier();
+            updateGates();
+            drawGates();
+            detectCollision();
+            drawScore();
+            requestAnimationFrame(gameLoop);
+        }
+
+        function keyDown(e) {
+            if (e.key === 'ArrowLeft') skier.dx = -skier.speed;
+            if (e.key === 'ArrowRight') skier.dx = skier.speed;
+        }
+
+        function keyUp(e) {
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') skier.dx = 0;
+        }
+
+        document.addEventListener('keydown', keyDown);
+        document.addEventListener('keyup', keyUp);
+
+        setInterval(createGate, 1500);
+        gameLoop();
+    </script>
+</body>
+</html>
+
